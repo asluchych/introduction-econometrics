@@ -75,7 +75,7 @@ random$xScaled <- random$X/10
 # Re-estimate the model from b)
 regScaledX <- lm(Y2 ~ xScaled, data = random)
 summary(regScaledX)
-# (ii) by reducing the sample size, use the first 100 observations
+# (ii) by reducing the sample size; use the first 100 observations
 regSmallSample <- lm(Y2 ~ X, data = random[1:100,])
 summary(regSmallSample)
 

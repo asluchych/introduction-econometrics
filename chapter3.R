@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
- #            Assignment 3: Interval Estimation and Hypothesis Testing          # 
+#            Assignment 3: Interval Estimation and Hypothesis Testing          # 
 #                           Exercise 3                                         #
 #                                                                              #
 ################################################################################
