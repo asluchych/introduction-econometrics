@@ -35,7 +35,7 @@ tstatA <- (co[3,1] - (-1000))/co[3,2]
 # calculate the p-value, left-sided
 pValA <- pt(tstatA, df = regA$df.residual)
 
-# (b) Model 2: include squard terms
+# (b) Model 2: include squared terms
 regB <- lm(PRICE ~ SQFT + I(SQFT^2) + AGE + I(AGE^2), data = houses)
 summary(regB)
 # get coefficients
@@ -68,7 +68,7 @@ pValB <- pt(tstatB, df = regB$df.residual)
 
 # (b) (iv) Version Buch: t-Test H_O: effect >=-1000 at age=20
 effectAge20 <- coB[4,1] + 2*coB[5,1]*20
-# calculate standarderror of the linear combination of coefficients
+# calculate standard error of the linear combination of coefficients
 seAge20 <- sqrt(covB[4,4] + (2*20)^2*covB[5,5] + 2*(2*20)*covB[4,5])
 # calculate t-Statistic: H_0: beta_4 + 2*beta_5*25 >= -1000
 tstat20 <- (effectAge20 - (-1000))/seAge20
