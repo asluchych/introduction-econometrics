@@ -52,21 +52,21 @@ effectAge25 <- coB[4,1] + 2*coB[5,1]*25
 
 # (b) (iii) 95% Confidence Interval for a house with 2000 sqft
 covB <- vcov(regB) # Variance - Covariance Matrix of the coefficients
-# calculate standarderror of the linear combination of coefficients
+# calculate standard error of the linear combination of coefficients
 seSqft2000 <- sqrt(covB[2,2] + 4000^2*covB[3,3] + 2*4000*covB[2,3])
 # calculate upper and lower bound
 upB <- effectSqft2000 + qt(0.975, regB$df.residual)*seSqft2000
 lowB <- effectSqft2000 - qt(0.975, regB$df.residual)*seSqft2000
 
-# (b) (iv) Version Lea:  t-Test H_O: effect >=-1000 at age=25
-# calculate standarderror of the linear combination of coefficients
+# (b) (iv) Version from Lea:  t-Test H_O: effect >=-1000 at age=25
+# calculate standard error of the linear combination of coefficients
 seAge25 <- sqrt(covB[4,4] + (2*25)^2*covB[5,5] + 2*(2*25)*covB[4,5])
 # calculate t-Statistic: H_0: beta_4 + 2*beta_5*25 >= -1000
 tstatB <- (effectAge25 - (-1000))/seAge25
 # calculate the p-value, left-sided
 pValB <- pt(tstatB, df = regB$df.residual)
 
-# (b) (iv) Version Buch: t-Test H_O: effect >=-1000 at age=20
+# (b) (iv) Version from book: t-Test H_0: effect >=-1000 at age=20
 effectAge20 <- coB[4,1] + 2*coB[5,1]*20
 # calculate standard error of the linear combination of coefficients
 seAge20 <- sqrt(covB[4,4] + (2*20)^2*covB[5,5] + 2*(2*20)*covB[4,5])
